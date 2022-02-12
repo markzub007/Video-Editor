@@ -22,7 +22,13 @@ class Interval {
 
 class VideoEditor {
   private _videoFile: VideoFile;
-  constructor(videoFiles: VideoFile[], audioFiles: AudioFile[] = []) {
+  private _exportDir: string;
+  constructor(
+    exportDir: string,
+    videoFiles: VideoFile[],
+    audioFiles: AudioFile[] = []
+  ) {
+    this._exportDir = exportDir;
     this._videoFile = this.mergeMedias(videoFiles, audioFiles);
   }
 
@@ -50,7 +56,7 @@ class VideoEditor {
    * @param bottomLeftPosition image bottom left position in the video frame
    * @param bottomRightPosition image bottom right position in the video frame
    * @param startTimeInSeconds when the image display in the video
-   * @param endTimeInSeconds when the image stop display 
+   * @param endTimeInSeconds when the image stop display
    * */
   public imageOverlay(
     image: ImageFile,
@@ -58,7 +64,7 @@ class VideoEditor {
     topRightPosition: number,
     bottomLeftPosition: number,
     bottomRightPosition: number,
-    startTimeInSeconds: number
+    startTimeInSeconds: number,
     endTimeInSeconds: number
   ): VideoFile {}
 }
